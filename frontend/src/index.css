@@ -1,0 +1,135 @@
+/* ===== Global styles ===== */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: #212529;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Code font */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* ===== Navbar bright mode ===== */
+.navbar {
+  background-color: #f8f9fa; /* Light background */
+  color: #212529; /* Dark text */
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  padding: 0.6rem 1rem;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar a {
+  color: #212529;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #0056b3;
+}
+
+/* ===== Global dark mode styles ===== */
+body.darkmode,
+body.darkmode * {
+  background-color: #000000 !important;
+  color: #f8f9fa !important;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.7) !important;
+  transition: color 0.3s ease, background-color 0.3s ease !important;
+}
+
+/* Links in dark mode */
+body.darkmode a,
+body.darkmode a:visited,
+body.darkmode a:hover,
+body.darkmode a:focus {
+  color: #82aaff !important;
+  text-shadow: none !important;
+  text-decoration: underline !important;
+}
+
+/* Buttons in dark mode */
+body.darkmode button,
+body.darkmode .btn,
+body.darkmode input[type="button"],
+body.darkmode input[type="submit"] {
+  background-color: #222222 !important;
+  color: #f8f9fa !important;
+  border-color: #444444 !important;
+  text-shadow: none !important;
+}
+
+/* Inputs, textareas in dark mode */
+body.darkmode input,
+body.darkmode textarea,
+body.darkmode select {
+  background-color: #222222 !important;
+  color: #f8f9fa !important;
+  border-color: #444444 !important;
+  text-shadow: none !important;
+}
+
+/* Placeholder text in dark mode */
+body.darkmode ::-webkit-input-placeholder,
+body.darkmode :-moz-placeholder,
+body.darkmode ::-moz-placeholder,
+body.darkmode :-ms-input-placeholder {
+  color: #bfc2c8 !important;
+  opacity: 1 !important;
+}
+
+/* Cards, containers */
+body.darkmode .card,
+body.darkmode .container,
+body.darkmode .content {
+  background-color: #121212 !important;
+  color: #f8f9fa !important;
+  text-shadow: 0 0 2px rgba(0,0,0,0.6) !important;
+}
+
+/* Code blocks in dark mode */
+body.darkmode code,
+body.darkmode pre {
+  background-color: #181818 !important;
+  color: #f5f5f5 !important;
+  text-shadow: none !important;
+}
+
+/* Muted text */
+body.darkmode .text-muted {
+  color: #adb5bd !important;
+}
+
+/* Remove conflicting inline styles */
+body.darkmode *[style] {
+  color: inherit !important;
+  background-color: inherit !important;
+}
+
+/* ===== Navbar dark mode ===== */
+body.darkmode .navbar {
+  background-color: #121212;
+  color: #f8f9fa;
+  font-size: 1.05rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+body.darkmode .navbar a {
+  color: #f8f9fa;
+}
+
+body.darkmode .navbar a:hover {
+  color: #82aaff;
+}
