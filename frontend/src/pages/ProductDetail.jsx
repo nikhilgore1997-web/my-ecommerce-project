@@ -22,7 +22,7 @@ const ProductDetail = () => {
     } else {
       const fetchProduct = async () => {
         try {
-          const res = await axios.get(`/api/products/${productId}`);
+          const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/${productId}`);
           setProduct(res.data);
           setLoading(false);
         } catch {
@@ -102,3 +102,4 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
+

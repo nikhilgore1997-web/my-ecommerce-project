@@ -1,4 +1,3 @@
-// src/pages/AddProduct.js
 import React, { useState } from "react";
 import axios from "axios";
 
@@ -18,9 +17,13 @@ export default function AddProduct() {
     e.preventDefault();
     try {
       const token = JSON.parse(localStorage.getItem("admin")).token;
-      await axios.post("http://localhost:5000/api/admin/products", productData, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/admin/products`,
+        productData,
+        {
+          headers: { Authorization: `Bearer ${token}` }
+        }
+      );
       alert("Product added successfully");
     } catch (err) {
       console.error(err);
@@ -31,7 +34,13 @@ export default function AddProduct() {
   return (
     <form onSubmit={handleSubmit}>
       <input name="name" onChange={handleChange} placeholder="Product Name" required />
-      <input name="price" type="number" onChange={handleChange} placeholder="Price" required />
+      <input
+        name="price"
+        type="number"
+        onChange={handleChange}
+        placeholder="Price"
+        required
+      />
       <input name="category" onChange={handleChange} placeholder="Category" required />
       <textarea name="description" onChange={handleChange} placeholder="Description" />
       <button type="submit">Add Product</button>

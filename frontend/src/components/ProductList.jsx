@@ -9,7 +9,7 @@ const ProductList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("/api/products");
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products`);
 
         // ✅ Ensure the response is always an array
         if (Array.isArray(res.data)) {

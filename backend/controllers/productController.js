@@ -1,7 +1,7 @@
-const Product = require('../models/Product');
+import Product from '../models/Product.js';
 
 // @desc   Get all products or filter by category
-exports.getAllProducts = async (req, res) => {
+export const getAllProducts = async (req, res) => {
   try {
     const category = req.query.category;
     const filter = category ? { category } : {}; // if category exists, filter by it
@@ -13,7 +13,7 @@ exports.getAllProducts = async (req, res) => {
 };
 
 // @desc   Add new product
-exports.addProduct = async (req, res) => {
+export const addProduct = async (req, res) => {
   try {
     const newProduct = new Product(req.body);
     await newProduct.save();
@@ -24,7 +24,7 @@ exports.addProduct = async (req, res) => {
 };
 
 // @desc   Update product
-exports.updateProduct = async (req, res) => {
+export const updateProduct = async (req, res) => {
   try {
     const updated = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.json(updated);
@@ -34,7 +34,7 @@ exports.updateProduct = async (req, res) => {
 };
 
 // @desc   Delete product
-exports.deleteProduct = async (req, res) => {
+export const deleteProduct = async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);
     res.json({ message: 'Product deleted' });

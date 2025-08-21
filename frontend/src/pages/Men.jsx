@@ -7,8 +7,10 @@ const Men = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/products')
+    console.log('Backend URL:', process.env.REACT_APP_API_URL);
+    axios.get(`${process.env.REACT_APP_API_URL}/api/products`)
       .then((res) => {
+        console.log('Fetched men products:', res.data);
         const menProducts = res.data.filter(p => p.category === 'men');
         setProducts(menProducts);
       })
@@ -19,11 +21,15 @@ const Men = () => {
     <Container className="mt-4">
       <h2 className="mb-4">Men's Products</h2>
       <Row>
-        {products.map(product => (
-          <Col key={product._id} sm={12} md={6} lg={4}>
-            <ProductCard product={product} />
-          </Col>
-        ))}
+        {products.length > 0 ? (
+          products.map(product => (
+            <Col key={product._id || product.id} sm={12} md={6} lg={4}>
+              <ProductCard product={product} />
+            </Col>
+          ))
+        ) : (
+          <p>No men's products available.</p>
+        )}
       </Row>
     </Container>
   );
